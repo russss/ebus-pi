@@ -1,0 +1,713 @@
+EESchema Schematic File Version 2
+LIBS:ebus-pi-rescue
+LIBS:power
+LIBS:device
+LIBS:transistors
+LIBS:conn
+LIBS:linear
+LIBS:regul
+LIBS:74xx
+LIBS:cmos4000
+LIBS:adc-dac
+LIBS:memory
+LIBS:xilinx
+LIBS:microcontrollers
+LIBS:dsp
+LIBS:microchip
+LIBS:analog_switches
+LIBS:motorola
+LIBS:texas
+LIBS:intel
+LIBS:audio
+LIBS:interface
+LIBS:digital-audio
+LIBS:philips
+LIBS:display
+LIBS:cypress
+LIBS:siliconi
+LIBS:opto
+LIBS:atmel
+LIBS:contrib
+LIBS:valves
+LIBS:agg-kicad
+LIBS:cn3083
+LIBS:Tag-Connect
+LIBS:ebus-pi-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "Raspberry Pi eBUS Interface"
+Date "2017-04-21"
+Rev "1.0"
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L D D2
+U 1 1 58F73543
+P 6250 1800
+F 0 "D2" H 6250 1584 50  0000 C CNN
+F 1 "LL4148" H 6250 1675 50  0000 C CNN
+F 2 "agg:SOD-123" H 650 -1250 50  0001 C CNN
+F 3 "" H 650 -1250 50  0001 C CNN
+	1    6250 1800
+	-1   0    0    1   
+$EndComp
+$Comp
+L D D3
+U 1 1 58F73610
+P 6250 2100
+F 0 "D3" H 6250 1976 50  0000 C CNN
+F 1 "LL4148" H 6250 1885 50  0000 C CNN
+F 2 "agg:SOD-123" H 1500 -550 50  0001 C CNN
+F 3 "" H 1500 -550 50  0001 C CNN
+	1    6250 2100
+	-1   0    0    -1  
+$EndComp
+$Comp
+L D D4
+U 1 1 58F736C3
+P 6400 1950
+F 0 "D4" V 6446 1871 50  0000 R CNN
+F 1 "LL4148" V 6355 1871 50  0000 R CNN
+F 2 "agg:SOD-123" H 1150 -550 50  0001 C CNN
+F 3 "" H 1150 -550 50  0001 C CNN
+	1    6400 1950
+	0    -1   -1   0   
+$EndComp
+$Comp
+L D D1
+U 1 1 58F73732
+P 6100 1950
+F 0 "D1" V 6146 2028 50  0000 L CNN
+F 1 "LL4148" V 6055 2028 50  0000 L CNN
+F 2 "agg:SOD-123" H 1750 -550 50  0001 C CNN
+F 3 "" H 1750 -550 50  0001 C CNN
+	1    6100 1950
+	0    -1   -1   0   
+$EndComp
+Text GLabel 6650 2100 2    60   Output ~ 0
+Vbus
+Wire Wire Line
+	6400 2100 6650 2100
+Text GLabel 6650 1800 2    60   Input ~ 0
+EBus1
+Text GLabel 5850 2100 0    60   Input ~ 0
+EBus2
+Connection ~ 6400 1800
+Connection ~ 6400 2100
+Connection ~ 6100 2100
+Connection ~ 6100 1800
+$Comp
+L D_Zener D5
+U 1 1 58F74292
+P 10450 5150
+F 0 "D5" V 10404 5229 50  0000 L CNN
+F 1 "7V5" V 10495 5229 50  0000 L CNN
+F 2 "agg:SOD-123" H 5000 1950 50  0001 C CNN
+F 3 "" H 5000 1950 50  0001 C CNN
+	1    10450 5150
+	0    1    1    0   
+$EndComp
+Text GLabel 10450 4850 1    60   Output ~ 0
+Vbus
+Wire Wire Line
+	10450 4850 10450 5000
+Wire Wire Line
+	10450 5600 10450 5850
+$Comp
+L AGND #PWR01
+U 1 1 58F75018
+P 10450 5850
+F 0 "#PWR01" H 4470 2290 50  0001 L CNN
+F 1 "AGND" H 10450 5717 50  0000 C CNN
+F 2 "" H 4600 2250 60  0001 C CNN
+F 3 "" H 4600 2250 60  0001 C CNN
+	1    10450 5850
+	1    0    0    -1  
+$EndComp
+$Comp
+L NFET Q1
+U 1 1 58F750B7
+P 10450 5400
+F 0 "Q1" H 10538 5396 50  0000 L CNN
+F 1 "NFET" H 10538 5305 50  0000 L CNN
+F 2 "agg:SOT-23" H 6250 2650 50  0001 C CNN
+F 3 "" H 6250 2650 50  0001 C CNN
+	1    10450 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L AGND #PWR02
+U 1 1 58F752AC
+P 5700 1800
+F 0 "#PWR02" H -1030 640 50  0001 L CNN
+F 1 "AGND" H 5700 1887 50  0000 C CNN
+F 2 "" H -900 600 60  0001 C CNN
+F 3 "" H -900 600 60  0001 C CNN
+	1    5700 1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6100 1800 5700 1800
+$Comp
+L AD8542 IC2
+U 2 1 58F8F156
+P 9350 5500
+F 0 "IC2" H 9700 5750 50  0000 L CNN
+F 1 "AD8542" H 9650 5650 50  0000 L CNN
+F 2 "agg:MSOP-8" H 4500 2300 50  0001 L CNN
+F 3 "" H 4500 3000 50  0001 C CNN
+F 4 "2305609" H 4500 2200 50  0001 L CNN "Farnell"
+	2    9350 5500
+	1    0    0    -1  
+$EndComp
+$Comp
+L AD8542 IC2
+U 1 1 58F8F23E
+P 8050 3800
+F 0 "IC2" H 8450 3700 50  0000 L CNN
+F 1 "AD8542" H 8400 3600 50  0000 L CNN
+F 2 "agg:MSOP-8" H 3150 800 50  0001 L CNN
+F 3 "" H 3150 1500 50  0001 C CNN
+F 4 "2305609" H 3150 700 50  0001 L CNN "Farnell"
+	1    8050 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L ADuM5201 IC1
+U 1 1 58F8F4C9
+P 4300 2200
+F 0 "IC1" H 4300 2725 50  0000 C CNN
+F 1 "ADuM5201" H 4300 2634 50  0000 C CNN
+F 2 "agg:SOIC-16-W" H 900 -1600 50  0001 L CNN
+F 3 "" H 1300 -1000 50  0001 C CNN
+F 4 "2067773" H 900 -1700 50  0001 L CNN "Farnell"
+	1    4300 2200
+	1    0    0    -1  
+$EndComp
+NoConn ~ 4700 2500
+$Comp
+L AGND #PWR03
+U 1 1 58F8F5ED
+P 4800 2750
+F 0 "#PWR03" H 420 -1060 50  0001 L CNN
+F 1 "AGND" H 4800 2617 50  0000 C CNN
+F 2 "" H 550 -1100 60  0001 C CNN
+F 3 "" H 550 -1100 60  0001 C CNN
+	1    4800 2750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4800 2400 4800 2750
+$Comp
+L GND #PWR04
+U 1 1 58F8F7FE
+P 3900 2750
+F 0 "#PWR04" H 700 -1200 50  0001 C CNN
+F 1 "GND" H 3905 2577 50  0000 C CNN
+F 2 "" H 700 -950 50  0001 C CNN
+F 3 "" H 700 -950 50  0001 C CNN
+	1    3900 2750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3900 2600 3900 2750
+$Comp
+L 3v3 #PWR05
+U 1 1 58F8F901
+P 3900 1800
+F 0 "#PWR05" H 1250 -340 50  0001 L CNN
+F 1 "3v3" H 3900 1924 50  0000 C CNN
+F 2 "" H 1250 -450 60  0001 C CNN
+F 3 "" H 1250 -450 60  0001 C CNN
+	1    3900 1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3900 1800 3900 1900
+$Comp
+L AVCC #PWR06
+U 1 1 58F8FA85
+P 4700 1800
+F 0 "#PWR06" H 250 -590 50  0001 L CNN
+F 1 "AVCC" H 4700 1924 50  0000 C CNN
+F 2 "" H 250 -700 60  0001 C CNN
+F 3 "" H 250 -700 60  0001 C CNN
+	1    4700 1800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4700 1800 4700 1900
+Wire Wire Line
+	4700 2400 4800 2400
+Wire Wire Line
+	4800 2600 4700 2600
+Connection ~ 4800 2600
+NoConn ~ 3900 2500
+$Comp
+L AGND #PWR07
+U 1 1 58F8FBC6
+P 4900 2000
+F 0 "#PWR07" H 470 -860 50  0001 L CNN
+F 1 "AGND" V 4900 1912 50  0000 R CNN
+F 2 "" H 600 -900 60  0001 C CNN
+F 3 "" H 600 -900 60  0001 C CNN
+	1    4900 2000
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4700 2000 4900 2000
+$Comp
+L 3v3 #PWR08
+U 1 1 58F8FCFF
+P 3600 2400
+F 0 "#PWR08" H 850 -740 50  0001 L CNN
+F 1 "3v3" V 3600 2478 50  0000 L CNN
+F 2 "" H 850 -850 60  0001 C CNN
+F 3 "" H 850 -850 60  0001 C CNN
+	1    3600 2400
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	3900 2400 3600 2400
+$Comp
+L GND #PWR09
+U 1 1 58F8FE08
+P 3650 2300
+F 0 "#PWR09" H 850 -1000 50  0001 C CNN
+F 1 "GND" V 3655 2172 50  0000 R CNN
+F 2 "" H 850 -750 50  0001 C CNN
+F 3 "" H 850 -750 50  0001 C CNN
+	1    3650 2300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3900 2300 3650 2300
+$Comp
+L GND #PWR010
+U 1 1 58F8FEC4
+P 3650 2000
+F 0 "#PWR010" H 800 -1100 50  0001 C CNN
+F 1 "GND" V 3655 1872 50  0000 R CNN
+F 2 "" H 800 -850 50  0001 C CNN
+F 3 "" H 800 -850 50  0001 C CNN
+	1    3650 2000
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	3900 2000 3650 2000
+Text GLabel 5000 2100 2    60   Output ~ 0
+Tx
+Wire Wire Line
+	5000 2100 4700 2100
+Text GLabel 5000 2200 2    60   Input ~ 0
+Rx
+Wire Wire Line
+	5000 2200 4700 2200
+Wire Wire Line
+	9850 5500 10250 5500
+Wire Wire Line
+	9350 5600 9050 5600
+Wire Wire Line
+	9050 5600 9050 6050
+Wire Wire Line
+	9050 6050 10000 6050
+Wire Wire Line
+	10000 6050 10000 5500
+Connection ~ 10000 5500
+Text GLabel 9150 5400 0    60   Input ~ 0
+Tx
+Wire Wire Line
+	9150 5400 9350 5400
+$Comp
+L AGND #PWR011
+U 1 1 58F90390
+P 8250 4100
+F 0 "#PWR011" H 8300 4150 50  0001 L CNN
+F 1 "AGND" H 8193 4077 50  0000 R CNN
+F 2 "" H -350 -850 60  0001 C CNN
+F 3 "" H -350 -850 60  0001 C CNN
+	1    8250 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L AVCC #PWR012
+U 1 1 58F904D2
+P 8250 3500
+F 0 "#PWR012" H 8300 3550 50  0001 L CNN
+F 1 "AVCC" H 8250 3624 50  0000 C CNN
+F 2 "" H -200 -850 60  0001 C CNN
+F 3 "" H -200 -850 60  0001 C CNN
+	1    8250 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8250 3500 8250 3600
+Wire Wire Line
+	8250 4000 8250 4100
+$Comp
+L R R1
+U 1 1 58F90898
+P 6900 4250
+F 0 "R1" H 6970 4296 50  0000 L CNN
+F 1 "82k5" H 6970 4205 50  0000 L CNN
+F 2 "agg:0805" V 1430 -350 50  0001 C CNN
+F 3 "" H 1500 -350 50  0001 C CNN
+	1    6900 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R2
+U 1 1 58F90915
+P 6900 4650
+F 0 "R2" H 6970 4696 50  0000 L CNN
+F 1 "13k" H 6970 4605 50  0000 L CNN
+F 2 "agg:0805" V 1380 -650 50  0001 C CNN
+F 3 "" H 1450 -650 50  0001 C CNN
+	1    6900 4650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6900 4400 6900 4500
+Text GLabel 6900 4000 1    60   Input ~ 0
+Vbus
+$Comp
+L AGND #PWR013
+U 1 1 58F90AD7
+P 6900 4900
+F 0 "#PWR013" H 6950 4950 50  0001 L CNN
+F 1 "AGND" H 6900 4767 50  0000 C CNN
+F 2 "" H 1400 -400 60  0001 C CNN
+F 3 "" H 1400 -400 60  0001 C CNN
+	1    6900 4900
+	1    0    0    -1  
+$EndComp
+Connection ~ 6900 4450
+$Comp
+L C C3
+U 1 1 58F90F3E
+P 3800 1150
+F 0 "C3" H 3915 1196 50  0000 L CNN
+F 1 "100n" H 3915 1105 50  0000 L CNN
+F 2 "agg:0805" H -312 -1200 50  0001 C CNN
+F 3 "" H -350 -1050 50  0001 C CNN
+	1    3800 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C4
+U 1 1 58F90FB9
+P 4200 1150
+F 0 "C4" H 4315 1196 50  0000 L CNN
+F 1 "10u" H 4315 1105 50  0000 L CNN
+F 2 "agg:0805" H -212 -1000 50  0001 C CNN
+F 3 "" H -250 -850 50  0001 C CNN
+	1    4200 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C2
+U 1 1 58F9102B
+P 3400 1150
+F 0 "C2" H 3515 1196 50  0000 L CNN
+F 1 "10u" H 3515 1105 50  0000 L CNN
+F 2 "agg:0805" H 838 -1050 50  0001 C CNN
+F 3 "" H 800 -900 50  0001 C CNN
+	1    3400 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L C C1
+U 1 1 58F9109B
+P 3000 1150
+F 0 "C1" H 3115 1196 50  0000 L CNN
+F 1 "100n" H 3115 1105 50  0000 L CNN
+F 2 "agg:0805" H 388 -1100 50  0001 C CNN
+F 3 "" H 350 -950 50  0001 C CNN
+	1    3000 1150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3800 1000 4200 1000
+$Comp
+L AVCC #PWR014
+U 1 1 58F91224
+P 4000 950
+F 0 "#PWR014" H -300 -740 50  0001 L CNN
+F 1 "AVCC" H 4000 1074 50  0000 C CNN
+F 2 "" H -300 -850 60  0001 C CNN
+F 3 "" H -300 -850 60  0001 C CNN
+	1    4000 950 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4000 950  4000 1000
+Connection ~ 4000 1000
+Wire Wire Line
+	3800 1300 4200 1300
+$Comp
+L AGND #PWR015
+U 1 1 58F91376
+P 4000 1350
+F 0 "#PWR015" H -430 -860 50  0001 L CNN
+F 1 "AGND" H 4000 1217 50  0000 C CNN
+F 2 "" H -300 -900 60  0001 C CNN
+F 3 "" H -300 -900 60  0001 C CNN
+	1    4000 1350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4000 1350 4000 1300
+Connection ~ 4000 1300
+Wire Wire Line
+	3000 1000 3400 1000
+Wire Wire Line
+	3000 1300 3400 1300
+$Comp
+L GND #PWR016
+U 1 1 58F918C8
+P 3200 1350
+F 0 "#PWR016" H 0   -1050 50  0001 C CNN
+F 1 "GND" H 3205 1177 50  0000 C CNN
+F 2 "" H 0   -800 50  0001 C CNN
+F 3 "" H 0   -800 50  0001 C CNN
+	1    3200 1350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3200 1350 3200 1300
+Connection ~ 3200 1300
+$Comp
+L 3v3 #PWR017
+U 1 1 58F919E2
+P 3200 950
+F 0 "#PWR017" H 100 -540 50  0001 L CNN
+F 1 "3v3" H 3200 1074 50  0000 C CNN
+F 2 "" H 100 -650 60  0001 C CNN
+F 3 "" H 100 -650 60  0001 C CNN
+	1    3200 950 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3200 950  3200 1000
+Connection ~ 3200 1000
+$Comp
+L R R3
+U 1 1 58F91D18
+P 7400 3400
+F 0 "R3" H 7470 3446 50  0000 L CNN
+F 1 "47k5" H 7470 3355 50  0000 L CNN
+F 2 "agg:0805" V 1730 -1400 50  0001 C CNN
+F 3 "" H 1800 -1400 50  0001 C CNN
+	1    7400 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L R R4
+U 1 1 58F91D88
+P 7400 3800
+F 0 "R4" H 7470 3846 50  0000 L CNN
+F 1 "56k2" H 7470 3755 50  0000 L CNN
+F 2 "agg:0805" V 1780 -1350 50  0001 C CNN
+F 3 "" H 1850 -1350 50  0001 C CNN
+	1    7400 3800
+	1    0    0    -1  
+$EndComp
+$Comp
+L AVCC #PWR018
+U 1 1 58F91E3C
+P 7400 3150
+F 0 "#PWR018" H 7450 3200 50  0001 L CNN
+F 1 "AVCC" H 7400 3274 50  0000 C CNN
+F 2 "" H 900 -650 60  0001 C CNN
+F 3 "" H 900 -650 60  0001 C CNN
+	1    7400 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L AGND #PWR019
+U 1 1 58F91ECF
+P 7400 4050
+F 0 "#PWR019" H 7450 4100 50  0001 L CNN
+F 1 "AGND" H 7400 3917 50  0000 C CNN
+F 2 "" H 1700 -1300 60  0001 C CNN
+F 3 "" H 1700 -1300 60  0001 C CNN
+	1    7400 4050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 4050 7400 3950
+Wire Wire Line
+	7400 3550 7400 3650
+Wire Wire Line
+	7400 3250 7400 3150
+Wire Wire Line
+	7400 3600 7800 3600
+Wire Wire Line
+	7800 3600 7800 3700
+Wire Wire Line
+	7800 3700 8050 3700
+Connection ~ 7400 3600
+Wire Wire Line
+	8050 3900 7800 3900
+Wire Wire Line
+	7800 3900 7800 4450
+Wire Wire Line
+	7800 4450 6900 4450
+Wire Wire Line
+	6900 4100 6900 4000
+Wire Wire Line
+	6900 4900 6900 4800
+Text GLabel 8650 3800 2    60   Output ~ 0
+Rx
+Wire Wire Line
+	8550 3800 8650 3800
+Text Notes 5650 4650 0    39   ~ 0
+Reduce 24V bus voltage to\nreasonable input level\n\nListed resistance values\nproduce:\n\n9V (low):  1.23V\n12-15V (undefined):  1.63-2.04V\n24V (high): 3.27V
+Text Notes 6450 3500 0    39   ~ 0
+Reference voltage between\nhigh and low states.\n13.5V is 1.84V after divider.
+Wire Wire Line
+	5850 2100 6100 2100
+Wire Wire Line
+	6400 1800 6650 1800
+Wire Notes Line
+	5400 1250 5400 2400
+Wire Notes Line
+	5400 2400 7150 2400
+Wire Notes Line
+	7150 2400 7150 1250
+Wire Notes Line
+	7150 1250 5400 1250
+Wire Notes Line
+	5400 1400 7150 1400
+Text Notes 5900 1350 0    60   ~ 0
+Input Protection
+Wire Notes Line
+	5400 2600 5400 5200
+Wire Notes Line
+	5400 5200 9000 5200
+Wire Notes Line
+	9000 5200 9000 2600
+Wire Notes Line
+	9000 2600 5400 2600
+Wire Notes Line
+	5400 2800 9000 2800
+NoConn ~ 3200 1800
+NoConn ~ 3200 1900
+NoConn ~ 3200 2700
+NoConn ~ 3200 2800
+NoConn ~ 3200 3000
+NoConn ~ 3200 3100
+NoConn ~ 3200 3400
+NoConn ~ 3200 3500
+NoConn ~ 3200 3600
+NoConn ~ 3200 3800
+NoConn ~ 3200 4000
+NoConn ~ 3200 4100
+NoConn ~ 1200 4000
+NoConn ~ 1200 3900
+NoConn ~ 1200 3700
+NoConn ~ 1200 3600
+NoConn ~ 1200 3500
+NoConn ~ 1200 3400
+NoConn ~ 1200 3300
+NoConn ~ 1200 3200
+NoConn ~ 1200 2000
+NoConn ~ 1200 2100
+Wire Wire Line
+	1200 2300 1200 3000
+Connection ~ 1200 2400
+Connection ~ 1200 2500
+Connection ~ 1200 2600
+Connection ~ 1200 2700
+Connection ~ 1200 2800
+Connection ~ 1200 2900
+$Comp
+L GND #PWR020
+U 1 1 58FA4CBA
+P 900 2750
+F 0 "#PWR020" H 0   -300 50  0001 C CNN
+F 1 "GND" H 905 2577 50  0000 C CNN
+F 2 "" H 0   -50 50  0001 C CNN
+F 3 "" H 0   -50 50  0001 C CNN
+	1    900  2750
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	900  2750 900  2600
+Wire Wire Line
+	900  2600 1200 2600
+NoConn ~ 1200 1900
+$Comp
+L 3v3 #PWR021
+U 1 1 58FA4E12
+P 1000 1700
+F 0 "#PWR021" H -200 410 50  0001 L CNN
+F 1 "3v3" H 1000 1824 50  0000 C CNN
+F 2 "" H -200 300 60  0001 C CNN
+F 3 "" H -200 300 60  0001 C CNN
+	1    1000 1700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 1800 1200 1800
+Wire Wire Line
+	1000 1800 1000 1700
+$Comp
+L CONN_02x01 J2
+U 1 1 58FA5D37
+P 8100 1900
+F 0 "J2" H 8050 2115 50  0000 C CNN
+F 1 "CONN_02x01" H 8050 2024 50  0000 C CNN
+F 2 "russ:MSTBVA2,5-2" H -50 850 50  0001 C CNN
+F 3 "" H -50 850 50  0001 C CNN
+	1    8100 1900
+	1    0    0    -1  
+$EndComp
+Text GLabel 7800 1900 0    60   Output ~ 0
+EBus1
+Text GLabel 8300 1900 2    60   Output ~ 0
+EBus2
+Wire Wire Line
+	8200 1900 8300 1900
+Wire Wire Line
+	7900 1900 7800 1900
+$Comp
+L PWR #FLG022
+U 1 1 58FA7521
+P 1000 2600
+F 0 "#FLG022" H 200 310 50  0001 C CNN
+F 1 "PWR" H 1000 2734 50  0000 C CNN
+F 2 "" H 200 150 50  0001 C CNN
+F 3 "" H 200 150 50  0001 C CNN
+	1    1000 2600
+	1    0    0    -1  
+$EndComp
+Connection ~ 1000 2600
+$Comp
+L RASPBERRY-PI J1
+U 1 1 58FA42C9
+P 2200 3000
+F 0 "J1" H 2200 4425 50  0000 C CNN
+F 1 "RASPBERRY-PI" H 2200 4334 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_2x20_Pitch2.54mm" H 700 -2200 50  0001 L CNN
+F 3 "https://pinout.xyz/" H 700 -2300 50  0001 L CNN
+	1    2200 3000
+	1    0    0    -1  
+$EndComp
+NoConn ~ 3200 4200
+NoConn ~ 3200 3300
+NoConn ~ 3200 2900
+NoConn ~ 3200 2400
+NoConn ~ 3200 2500
+Wire Wire Line
+	3200 2200 3900 2200
+Wire Wire Line
+	3900 2100 3200 2100
+$EndSCHEMATC
